@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">spotychapisote</string>
+    <string name="mis_canciones">Mis canciones</string>
+    <string name="mood_del_dia">Mood del día</string>
 </resources>
