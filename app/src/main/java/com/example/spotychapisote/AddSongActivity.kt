@@ -61,7 +61,6 @@ class AddSongActivity : AppCompatActivity() {
             if (titulo.isEmpty()) return@setOnClickListener
             if (artista.isEmpty()) return@setOnClickListener
             if (link.isEmpty()) return@setOnClickListener
-            if (coverUriString.isEmpty()) return@setOnClickListener
 
             val repo = SongRepository(context)
             repo.agregarCancion(

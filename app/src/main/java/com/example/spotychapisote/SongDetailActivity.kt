@@ -50,7 +50,7 @@ class SongDetailActivity : AppCompatActivity() {
         if (song.coverUri.isNotEmpty()) {
             binding.imageCover.setImageURI(Uri.parse(song.coverUri))
         } else {
-            binding.imageCover.setImageResource(R.drawable.cover_default)
+            binding.imageCover.setImageResource(R.drawable.image_default)
         }
 
         // Back
