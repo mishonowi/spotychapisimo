@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.spotychapisote.databinding.ItemSongBinding
 
 class SongAdapter(
-    private var songs: MutableList<Song>
+    private var songs: MutableList<Song>,
+    private val onClickItem: (Song) -> Unit
 ) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
     class SongViewHolder(val binding: ItemSongBinding) : RecyclerView.ViewHolder(binding.root)
@@ -25,6 +26,10 @@ class SongAdapter(
 
         holder.binding.textTituloCancion.text = song.titulo
         holder.binding.textNombreArtista.text = song.artista
+
+        holder.binding.cardSongItem.setOnClickListener {
+            onClickItem(song)
+        }
     }
 
     override fun getItemCount(): Int = songs.size
@@ -34,3 +39,4 @@ class SongAdapter(
         notifyDataSetChanged()
     }
 }
+

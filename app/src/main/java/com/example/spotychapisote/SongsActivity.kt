@@ -1,6 +1,6 @@
 package com.example.spotychapisote
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +14,6 @@ class SongsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySongsBinding
     private lateinit var adapter: SongAdapter
     private lateinit var repo: SongRepository
-    val context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +27,24 @@ class SongsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //a
 
         repo = SongRepository(this)
 
         val lista = repo.obtenerCanciones()
 
-        adapter = SongAdapter(lista)
+        adapter = SongAdapter(lista) { song ->
+            val intent = Intent(this, SongDetailActivity::class.java)
+            intent.putExtra("SONG_ID", song.id)
+            startActivity(intent)
+        }
 
         binding.recyclerSongs.layoutManager = LinearLayoutManager(this)
         binding.recyclerSongs.adapter = adapter
+
+        // si tienes botón back en esta pantalla:
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onResume() {
