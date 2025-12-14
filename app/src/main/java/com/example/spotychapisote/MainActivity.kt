@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         videoView.setOnClickListener {
             if (isVideoFinished) {
                 // Usa this@MainActivity para el contexto
-                val intent = Intent(this@MainActivity, Menu::class.java)
+                val intent = Intent(this@MainActivity, MenuActivity::class.java)
                 startActivity(intent)
                 finish()
             }

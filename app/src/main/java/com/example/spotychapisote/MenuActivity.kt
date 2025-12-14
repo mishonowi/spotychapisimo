@@ -1,4 +1,4 @@
 package com.example.spotychapisote
 
-class Menu {
+class MenuActivity {
 }

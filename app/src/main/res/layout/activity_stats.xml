@@ -82,12 +82,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Headers columns -->
+    <!-- Guideline 50% para dividir columnas -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- Headers -->
     <TextView
         android:id="@+id/textHeaderTopSongs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginTop="26dp"
         android:text="@string/top_canciones"
         android:textColor="#F9FAFB"
@@ -95,13 +104,13 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/textTopSongTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/textHeaderTopArtists"
-        app:layout_constraintHorizontalWeight="1"/>
+        app:layout_constraintEnd_toStartOf="@id/guidelineCenter" />
 
     <TextView
         android:id="@+id/textHeaderTopArtists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="26dp"
         android:text="@string/top_artistas"
@@ -109,22 +118,21 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/textTopSongTitle"
-        app:layout_constraintStart_toEndOf="@id/textHeaderTopSongs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontalWeight="1"/>
+        app:layout_constraintStart_toEndOf="@id/guidelineCenter"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Left column: top songs -->
+    <!-- Columna izquierda -->
     <LinearLayout
         android:id="@+id/colTopSongs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginTop="14dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/textHeaderTopSongs"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/colTopArtists"
-        app:layout_constraintHorizontalWeight="1">
+        app:layout_constraintEnd_toStartOf="@id/guidelineCenter">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -202,18 +210,18 @@
 
     </LinearLayout>
 
-    <!-- Right column: top artists -->
+    <!-- Columna derecha -->
     <LinearLayout
         android:id="@+id/colTopArtists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="14dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/textHeaderTopArtists"
-        app:layout_constraintStart_toEndOf="@id/colTopSongs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontalWeight="1">
+        app:layout_constraintStart_toEndOf="@id/guidelineCenter"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
