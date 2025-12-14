@@ -54,7 +54,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/artista"
         android:textColor="#9CA3AF"
-        android:textSize="20sp"
+        android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@id/cardCover"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -67,7 +67,7 @@
         android:layout_marginTop="2dp"
         android:text="@string/titulo_cancion"
         android:textColor="#F9FAFB"
-        android:textSize="25sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/textArtist"
         app:layout_constraintStart_toStartOf="parent"
