@@ -1,5 +1,4 @@
-<!--    layout_width="match_parent"-->
-<!--    layout_height="match_parent"-->
+
 <VideoView android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Spotychapisote">
         <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SongsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddSongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

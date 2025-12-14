@@ -1,5 +1,5 @@
 package com.example.spotychapisote
-
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.VideoView
@@ -7,11 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.spotychapisote.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    // 1. Mueve la variable aquí para que sea una propiedad de la clase
     private var isVideoFinished = false
+    private lateinit var binding: ActivityMainBinding
+
+    val context: Context =this
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -19,10 +22,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // El resto del código debería ir preferiblemente AQUÍ,
-        // fuera del listener de ViewCompat, a menos que realmente dependa de los insets.
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        // Mover la inicialización del VideoView aquí
+
         val videoView = findViewById<VideoView>(R.id.main)
         videoView.setVideoPath("android.resource://" + packageName + "/" + R.raw.videoo2)
 
@@ -47,6 +51,11 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        binding.main.setOnClickListener {
+            val intentMenuActivity = Intent(context, MenuActivity::class.java)
+
+            startActivity(intentMenuActivity)
         }
     }
 }

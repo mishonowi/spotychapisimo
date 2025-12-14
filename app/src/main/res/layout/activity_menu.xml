@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/menu"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2F3B73">
 
+    <!-- MIS CANCIONES -->
     <androidx.cardview.widget.CardView
         android:id="@+id/btnMisCanciones"
         android:layout_width="0dp"
@@ -30,9 +31,9 @@
                 android:id="@+id/iconMusic"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="20dp"
                 android:src="@android:drawable/ic_media_play"
                 app:tint="#F9FAFB"
-                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -41,11 +42,11 @@
                 android:id="@+id/textMisCanciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:text="@string/mis_canciones"
                 android:textColor="#F9FAFB"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:layout_marginStart="14dp"
                 app:layout_constraintStart_toEndOf="@id/iconMusic"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -53,6 +54,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- ESTADISTICAS -->
     <androidx.cardview.widget.CardView
         android:id="@+id/btnEstadisticas"
         android:layout_width="0dp"
@@ -64,7 +66,7 @@
         app:cardElevation="0dp"
         app:cardBackgroundColor="#1F2A4A"
         app:layout_constraintTop_toBottomOf="@id/btnMisCanciones"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnAgregarCancion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -76,9 +78,9 @@
                 android:id="@+id/iconStats"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="20dp"
                 android:src="@drawable/mood"
                 app:tint="#F9FAFB"
-                android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -87,12 +89,59 @@
                 android:id="@+id/textEstadisticas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:text="@string/mood_del_dia"
                 android:textColor="#F9FAFB"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:layout_marginStart="14dp"
                 app:layout_constraintStart_toEndOf="@id/iconStats"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- AGREGAR CANCION -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAgregarCancion"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="22dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#1F2A4A"
+        app:layout_constraintTop_toBottomOf="@id/btnEstadisticas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iconAdd"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:src="@android:drawable/ic_input_add"
+                app:tint="#F9FAFB"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/textAgregarCancion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="@string/agregar_cancion"
+                android:textColor="#F9FAFB"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iconAdd"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
