@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:background="#2F3B73">
 
-
-<!-- Search bar (card) -->
+    <!-- SEARCH -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSearch"
         android:layout_width="0dp"
@@ -32,8 +31,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="14dp"
-                android:contentDescription="@string/icono_buscar"
                 android:src="@android:drawable/ic_menu_search"
+                android:contentDescription="@string/icono_buscar"
                 app:tint="#F9FAFB"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,32 +41,29 @@
             <EditText
                 android:id="@+id/inputSearch"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="14dp"
                 android:background="@android:color/transparent"
                 android:hint="@string/search_hint"
                 android:inputType="text"
-                android:maxLines="1"
                 android:textColor="#F9FAFB"
                 android:textColorHint="#9CA3AF"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
+                android:maxLines="1"
                 app:layout_constraintStart_toEndOf="@id/iconSearch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Last Played header -->
+    <!-- LAST PLAYED -->
     <TextView
         android:id="@+id/textLastPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:text="@string/last_played"
         android:textColor="#F9FAFB"
         android:textSize="16sp"
@@ -77,19 +73,19 @@
 
     <ImageView
         android:id="@+id/iconLastPlayedArrow"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="10dp"
-        android:contentDescription="@string/icono_ver_mas"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
         android:src="@android:drawable/ic_media_next"
+        android:contentDescription="@string/icono_ver_mas"
         app:tint="#B3B3B3"
         app:layout_constraintStart_toEndOf="@id/textLastPlayed"
         app:layout_constraintTop_toTopOf="@id/textLastPlayed"
         app:layout_constraintBottom_toBottomOf="@id/textLastPlayed"/>
 
-    <!-- Row with 2 cards -->
+    <!-- LAST PLAYED CARDS -->
     <LinearLayout
-        android:id="@+id/rowLastPlayed"
+        android:id="@+id/layoutLastPlayed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -100,16 +96,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Card 1 -->
+        <!-- CARD 1 -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardLast1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
-            app:cardBackgroundColor="#2B3564">
+            app:cardBackgroundColor="#1F2A4A">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,13 +115,12 @@
                 <ImageView
                     android:id="@+id/imgLast1"
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
+                    android:layout_height="120dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="@string/cover_art"
-                    android:src="@drawable/cover_default"/>
+                    android:src="@drawable/cover_default"
+                    android:contentDescription="@string/cover_art"/>
 
                 <TextView
-                    android:id="@+id/last1ArtistSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -135,7 +129,7 @@
                     android:textSize="12sp"/>
 
                 <TextView
-                    android:id="@+id/last1Title"
+                    android:id="@+id/textLastTitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/titulo_cancion"
@@ -145,15 +139,14 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card 2 -->
+        <!-- CARD 2 -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardLast2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
-            app:cardBackgroundColor="#2B3564">
+            app:cardBackgroundColor="#1F2A4A">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,13 +157,12 @@
                 <ImageView
                     android:id="@+id/imgLast2"
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
+                    android:layout_height="120dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="@string/cover_art"
-                    android:src="@drawable/cover_default"/>
+                    android:src="@drawable/cover_default"
+                    android:contentDescription="@string/cover_art"/>
 
                 <TextView
-                    android:id="@+id/last2ArtistSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -179,7 +171,7 @@
                     android:textSize="12sp"/>
 
                 <TextView
-                    android:id="@+id/last2Title"
+                    android:id="@+id/textLastTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nombre_cancion"
@@ -191,19 +183,19 @@
 
     </LinearLayout>
 
-    <!-- RecyclerView -->
+    <!-- LISTA DE CANCIONES -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSongs"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginTop="14dp"
-        android:clipToPadding="false"
+        android:layout_marginTop="18dp"
         android:paddingBottom="20dp"
-        app:layout_constraintTop_toBottomOf="@id/rowLastPlayed"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/layoutLastPlayed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
