@@ -13,6 +13,16 @@
     <string name="titulo_de_la_cancion">Titulo de la cancion</string>
     <string name="volver">Volver</string>
     <string name="escuchar">Escuchar</string>
+    <string name="top_1">TOP 1</string>
+    <string name="top_canciones">Top Canciones</string>
+    <string name="top_artistas">Top Artistas</string>
+    <string name="cancion">Cancion</string>
+    <string name="agregar_cancion">Agregar Cancion</string>
+    <string name="nombre_de_la_cancion">Nombre de la cancion</string>
+    <string name="link">Link</string>
+    <string name="guardar">Guardar</string>
+    <string name="escribe_aqui">Escribe aqui</string>
+
 
 
 
