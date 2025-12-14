@@ -3,12 +3,14 @@ package com.example.spotychapisote
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.spotychapisote.databinding.ActivityAddSongBinding
+
 
 class AddSongActivity : AppCompatActivity() {
 
@@ -58,9 +60,26 @@ class AddSongActivity : AppCompatActivity() {
             val artista = binding.inputArtista.text.toString().trim()
             val link = binding.inputLink.text.toString().trim()
 
-            if (titulo.isEmpty()) return@setOnClickListener
-            if (artista.isEmpty()) return@setOnClickListener
-            if (link.isEmpty()) return@setOnClickListener
+            if (titulo.isEmpty()) {
+                Toast.makeText(this, "Agregar titulo", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            if (artista.isEmpty()) {
+                Toast.makeText(this, "Agregar artista", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            if (link.isEmpty()) {
+                Toast.makeText(this, "Agregar link", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            if(!esLinkYouTube(link)){
+                Toast.makeText(this, "Agregar link de youtube", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
 
             val repo = SongRepository(context)
             repo.agregarCancion(
@@ -69,9 +88,20 @@ class AddSongActivity : AppCompatActivity() {
                 linkYoutube = link,
                 coverUri = coverUriString
             )
-
-
             finish()
         }
     }
+
+    fun esLinkYouTube(link: String): Boolean {
+        val s = link.trim()
+
+        val uri = runCatching { Uri.parse(s) }.getOrNull() ?: return false
+        val host = (uri.host ?: "").lowercase()
+
+        val esDominioYT = host == "youtu.be" ||
+                host.endsWith("youtube.com") ||
+                host.endsWith("youtube-nocookie.com")
+        return esDominioYT
+    }
+
 }
