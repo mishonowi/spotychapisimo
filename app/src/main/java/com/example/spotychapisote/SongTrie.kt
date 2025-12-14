@@ -3,72 +3,62 @@ package com.example.spotychapisote
 class SongTrie {
 
     private class Node {
-        val hijos: Array<Node?> = arrayOfNulls(27)
-        var contador: Int = 0
+        var currentCharacter: Char = '\u0000'
+        var isWord: Boolean = false
+        val children: Array<Node?> = Array(27) { null }
+        val songIds: MutableSet<String> = linkedSetOf()
 
-        val idsCanciones: MutableList<String> = mutableListOf()
     }
 
-    private val raiz = Node()
+    private var trie: Node = Node()
 
-    private fun indice(c: Char): Int {
+    fun init() {
+        trie = Node()
+    }
+
+    private fun charToIndex(c: Char): Int {
         val ch = c.lowercaseChar()
-        if (ch in 'a'..'z') return ch.code - 'a'.code
-        return 26
+        return if (ch in 'a'..'z') (ch - 'a') else -1
     }
 
-    private fun normalizar(texto: String): String {
-        return texto.trim().lowercase()
-    }
+    fun insertWord(word: String, songId: String) {
+        var currentNode = trie
+        for (i in word.indices) {
+            val characterIndex = charToIndex(word[i])
+            if (characterIndex == -1) continue
 
-    fun insertarClave(clave: String, idCancion: String) {
-        val palabra = normalizar(clave)
-        if (palabra.isEmpty()) return
-
-        var nodoActual = raiz
-        for (i in palabra.indices) {
-            val pos = indice(palabra[i])
-            if (nodoActual.hijos[pos] == null) {
-                nodoActual.hijos[pos] = Node()
+            if (currentNode.children[characterIndex] == null) {
+                currentNode.children[characterIndex] = Node()
             }
-            nodoActual = nodoActual.hijos[pos]!!
-
-            nodoActual.contador++
-
-            if (!nodoActual.idsCanciones.contains(idCancion)) {
-                nodoActual.idsCanciones.add(idCancion)
-            }
+            currentNode = currentNode.children[characterIndex]!!
+            currentNode.currentCharacter = word[i]
+            currentNode.songIds.add(songId)
         }
+        currentNode.isWord = true
     }
 
-    fun insertarCancion(song: Song) {
-        insertarClave(song.titulo, song.id)
-        insertarClave(song.artista, song.id)
+    fun searchWord(word: String): Boolean {
+        var currentNode = trie
+        for (i in word.indices) {
+            val characterIndex = charToIndex(word[i])
+            if (characterIndex == -1) continue
+
+            if (currentNode.children[characterIndex] == null) return false
+            currentNode = currentNode.children[characterIndex]!!
+        }
+        return currentNode.isWord
     }
 
-    fun contarPrefijo(prefijo: String): Int {
-        val p = normalizar(prefijo)
-        if (p.isEmpty()) return 0
+    fun searchPrefix(prefix: String): List<String> {
+        var currentNode = trie
+        for (i in prefix.indices) {
+            val characterIndex = charToIndex(prefix[i])
+            if (characterIndex == -1) continue
 
-        var nodoActual = raiz
-        for (i in p.indices) {
-            val pos = indice(p[i])
-            val sig = nodoActual.hijos[pos] ?: return 0
-            nodoActual = sig
+            val next = currentNode.children[characterIndex] ?: return emptyList()
+            currentNode = next
         }
-        return nodoActual.contador
-    }
+        return currentNode.songIds.toList()
 
-    fun buscarIdsPorPrefijo(prefijo: String): List<String> {
-        val p = normalizar(prefijo)
-        if (p.isEmpty()) return emptyList()
-
-        var nodoActual = raiz
-        for (i in p.indices) {
-            val pos = indice(p[i])
-            val sig = nodoActual.hijos[pos] ?: return emptyList()
-            nodoActual = sig
-        }
-        return nodoActual.idsCanciones
     }
 }

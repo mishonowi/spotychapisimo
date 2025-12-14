@@ -7,7 +7,7 @@ import com.example.spotychapisote.databinding.ItemSongBinding
 
 class SongAdapter(
     private var songs: MutableList<Song>,
-    private val onClickItem: (Song) -> Unit
+    private val onClickSong: (Song) -> Unit
 ) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
     class SongViewHolder(val binding: ItemSongBinding) : RecyclerView.ViewHolder(binding.root)
@@ -27,8 +27,8 @@ class SongAdapter(
         holder.binding.textTituloCancion.text = song.titulo
         holder.binding.textNombreArtista.text = song.artista
 
-        holder.binding.cardSongItem.setOnClickListener {
-            onClickItem(song)
+        holder.binding.root.setOnClickListener {
+            onClickSong(song)
         }
     }
 
@@ -39,4 +39,3 @@ class SongAdapter(
         notifyDataSetChanged()
     }
 }
-
