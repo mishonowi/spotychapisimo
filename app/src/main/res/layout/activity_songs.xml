@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     android:background="#2F3B73">
 
+    <!-- BACK -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/volver"
+        android:src="@android:drawable/ic_media_previous"
+        app:tint="#F9FAFB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <!-- SEARCH -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSearch"
@@ -14,11 +28,11 @@
         android:layout_height="52dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="14dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="#1F2A4A"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -65,23 +79,11 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:text="@string/last_played"
-        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/cardSearch"
         app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/iconLastPlayedArrow"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:src="@android:drawable/ic_media_next"
-        android:contentDescription="@string/icono_ver_mas"
-        app:tint="#B3B3B3"
-        app:layout_constraintStart_toEndOf="@id/textLastPlayed"
-        app:layout_constraintTop_toTopOf="@id/textLastPlayed"
-        app:layout_constraintBottom_toBottomOf="@id/textLastPlayed"/>
 
     <!-- LAST PLAYED CARDS -->
     <LinearLayout
@@ -121,11 +123,11 @@
                     android:contentDescription="@string/cover_art"/>
 
                 <TextView
+                    android:id="@+id/textLastArtist1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/artista"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -134,9 +136,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/titulo_cancion"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -164,11 +166,11 @@
                     android:contentDescription="@string/cover_art"/>
 
                 <TextView
+                    android:id="@+id/textLastArtist2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/artista"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -177,9 +179,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nombre_cancion"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

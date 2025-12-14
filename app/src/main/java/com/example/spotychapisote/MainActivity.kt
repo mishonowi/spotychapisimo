@@ -30,15 +30,12 @@ class MainActivity : AppCompatActivity() {
         val videoView = findViewById<VideoView>(R.id.main)
         videoView.setVideoPath("android.resource://" + packageName + "/" + R.raw.videoo2)
 
-        // 1. When video finishes, set flag to true
         videoView.setOnCompletionListener {
             isVideoFinished = true
         }
 
-        // 2. On click, check flag and move if true
         videoView.setOnClickListener {
             if (isVideoFinished) {
-                // Usa this@MainActivity para el contexto
                 val intent = Intent(this@MainActivity, MenuActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -46,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         }
         videoView.start()
 
-        // Deja el ViewCompat solo para la parte de Insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
