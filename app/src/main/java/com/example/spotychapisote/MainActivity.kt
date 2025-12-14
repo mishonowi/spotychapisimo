@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         // Mover la inicialización del VideoView aquí
         val videoView = findViewById<VideoView>(R.id.main)
-        videoView.setVideoPath("android.resource://" + packageName + "/" + R.raw.videoo)
+        videoView.setVideoPath("android.resource://" + packageName + "/" + R.raw.videoo2)
 
         // 1. When video finishes, set flag to true
         videoView.setOnCompletionListener {
