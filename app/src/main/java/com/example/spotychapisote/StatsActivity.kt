@@ -29,6 +29,11 @@ class StatsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        binding.btnBackStats.setOnClickListener {
+            val intentMenuActivity = Intent(context, MenuActivity::class.java)
+
+            startActivity(intentMenuActivity)
+        }
 
 
 
