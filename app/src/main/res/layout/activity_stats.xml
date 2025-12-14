@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:text="@string/top_1"
+        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="19sp"
         android:textStyle="bold"
@@ -63,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/artista"
+        android:fontFamily="@font/gotham"
         android:textColor="#9CA3AF"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/cardTopCover"
@@ -75,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="@string/titulo_cancion"
+        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -99,6 +102,7 @@
         android:layout_marginEnd="12dp"
         android:layout_marginTop="26dp"
         android:text="@string/top_canciones"
+        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -143,6 +147,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="1"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -153,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/cancion"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -168,6 +174,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="2"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -178,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/cancion"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -193,6 +201,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="3"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -203,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/cancion"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -232,6 +242,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="1"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -242,6 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/artista"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -257,6 +269,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="2"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -267,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/artista"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
@@ -282,6 +296,7 @@
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 android:text="3"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
@@ -292,6 +307,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/artista"
+                android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
                 android:textStyle="bold"/>

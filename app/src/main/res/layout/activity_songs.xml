@@ -79,6 +79,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:text="@string/last_played"
+        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -128,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/artista"
+                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -136,6 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/titulo_cancion"
+                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
@@ -171,6 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/artista"
+                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -178,7 +182,8 @@
                     android:id="@+id/textLastTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/nombre_cancion"
+                    android:text="@string/titulo_cancion"
+                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
