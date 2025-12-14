@@ -3,6 +3,7 @@ package com.example.spotychapisote
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -62,11 +63,12 @@ class SongDetailActivity : AppCompatActivity() {
             if (song.linkYoutube.isNotEmpty()) {
                 val intentYoutube = Intent(Intent.ACTION_VIEW, Uri.parse(song.linkYoutube))
                 startActivity(intentYoutube)
-
-                // (opcional) marcar escucha y guardar
                 song.vecesEscuchada += 1
                 song.ultimaVezMs = System.currentTimeMillis()
                 repo.guardarCanciones(lista)
+            } else {
+                Toast.makeText(this, "Video no disponible", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
