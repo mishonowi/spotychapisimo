@@ -5,8 +5,8 @@ class SongTrie {
     private class Node {
         var currentCharacter: Char = '\u0000'
         var isWord: Boolean = false
-        // 26 letras + 10 dígitos + 1 para espacios/otros = 37 posiciones
-        val children: Array<Node?> = Array(37) { null }
+        // Usamos un HashMap para soportar CUALQUIER carácter
+        val children: MutableMap<Char, Node> = mutableMapOf()
         val songIds: MutableSet<String> = linkedSetOf()
     }
 
@@ -16,24 +16,18 @@ class SongTrie {
         trie = Node()
     }
 
-    private fun charToIndex(c: Char): Int {
-        return when {
-            c.lowercaseChar() in 'a'..'z' -> c.lowercaseChar() - 'a'  // 0-25
-            c in '0'..'9' -> 26 + (c - '0')  // 26-35
-            else -> 36  // espacios u otros caracteres
-        }
-    }
-
     fun insertWord(word: String, songId: String) {
         var currentNode = trie
         for (i in word.indices) {
-            val characterIndex = charToIndex(word[i])
+            val char = word[i].lowercaseChar()
 
-            if (currentNode.children[characterIndex] == null) {
-                currentNode.children[characterIndex] = Node()
+            // Si no existe el hijo para este carácter, lo creamos
+            if (!currentNode.children.containsKey(char)) {
+                currentNode.children[char] = Node()
             }
-            currentNode = currentNode.children[characterIndex]!!
-            currentNode.currentCharacter = word[i]
+
+            currentNode = currentNode.children[char]!!
+            currentNode.currentCharacter = char
             currentNode.songIds.add(songId)
         }
         currentNode.isWord = true
@@ -42,10 +36,10 @@ class SongTrie {
     fun searchWord(word: String): Boolean {
         var currentNode = trie
         for (i in word.indices) {
-            val characterIndex = charToIndex(word[i])
+            val char = word[i].lowercaseChar()
 
-            if (currentNode.children[characterIndex] == null) return false
-            currentNode = currentNode.children[characterIndex]!!
+            val next = currentNode.children[char] ?: return false
+            currentNode = next
         }
         return currentNode.isWord
     }
@@ -53,9 +47,9 @@ class SongTrie {
     fun searchPrefix(prefix: String): List<String> {
         var currentNode = trie
         for (i in prefix.indices) {
-            val characterIndex = charToIndex(prefix[i])
+            val char = prefix[i].lowercaseChar()
 
-            val next = currentNode.children[characterIndex] ?: return emptyList()
+            val next = currentNode.children[char] ?: return emptyList()
             currentNode = next
         }
         return currentNode.songIds.toList()
