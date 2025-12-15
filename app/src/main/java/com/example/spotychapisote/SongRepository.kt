@@ -28,7 +28,10 @@ class SongRepository(private val context: Context) {
                 linkYoutube = obj.optString("linkYoutube"),
                 coverUri = obj.optString("coverUri", ""),
                 vecesEscuchada = obj.optInt("vecesEscuchada", 0),
-                ultimaVezMs = obj.optLong("ultimaVezMs", 0L)
+                ultimaVezMs = obj.optLong("ultimaVezMs", 0L),
+
+                escuchasDelDia = obj.optInt("escuchasDelDia", 0),
+                dayIndexUltimaEscucha = obj.optInt("dayIndexUltimaEscucha", 0)
             )
             lista.add(cancion)
         }
@@ -46,6 +49,9 @@ class SongRepository(private val context: Context) {
             obj.put("coverUri", cancion.coverUri)
             obj.put("vecesEscuchada", cancion.vecesEscuchada)
             obj.put("ultimaVezMs", cancion.ultimaVezMs)
+            obj.put("escuchasDelDia", cancion.escuchasDelDia)
+            obj.put("dayIndexUltimaEscucha", cancion.dayIndexUltimaEscucha)
+
             arreglo.put(obj)
         }
 
@@ -62,7 +68,12 @@ class SongRepository(private val context: Context) {
             titulo = titulo,
             artista = artista,
             linkYoutube = linkYoutube,
-            coverUri = coverUri
+            coverUri = coverUri,
+            vecesEscuchada = 0,
+            ultimaVezMs = 0L,
+
+            escuchasDelDia = 0,
+            dayIndexUltimaEscucha = 0
         )
 
         lista.add(0, nueva)

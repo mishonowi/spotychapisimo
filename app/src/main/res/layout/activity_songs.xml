@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#2F3B73">
 
-    <!-- BACK -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -21,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- SEARCH -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSearch"
         android:layout_width="0dp"
@@ -71,7 +69,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- LAST PLAYED -->
     <TextView
         android:id="@+id/textLastPlayed"
         android:layout_width="wrap_content"
@@ -79,14 +76,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:text="@string/last_played"
-        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/cardSearch"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- LAST PLAYED CARDS -->
     <LinearLayout
         android:id="@+id/layoutLastPlayed"
         android:layout_width="0dp"
@@ -99,8 +94,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- CARD 1 -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardLast1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -120,16 +115,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/cover_default"
-                    android:contentDescription="@string/cover_art"/>
+                    android:src="@drawable/image_default"/>
 
                 <TextView
                     android:id="@+id/textLastArtist1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/artista"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -137,16 +129,14 @@
                     android:id="@+id/textLastTitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/titulo_cancion"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- CARD 2 -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardLast2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -165,16 +155,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/cover_default"
-                    android:contentDescription="@string/cover_art"/>
+                    android:src="@drawable/image_default"/>
 
                 <TextView
                     android:id="@+id/textLastArtist2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/artista"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
 
@@ -182,8 +169,6 @@
                     android:id="@+id/textLastTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/titulo_cancion"
-                    android:fontFamily="@font/gotham"
                     android:textColor="#F9FAFB"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
@@ -192,7 +177,6 @@
 
     </LinearLayout>
 
-    <!-- LISTA DE CANCIONES -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSongs"
         android:layout_width="0dp"
