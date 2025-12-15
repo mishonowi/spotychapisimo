@@ -44,38 +44,40 @@ class StatsActivity : AppCompatActivity() {
 
         val hoyIndex = (System.currentTimeMillis() / 86_400_000L).toInt()
 
-        val bit = Bit(lista.size)
-
         var huboCambios = false
 
-        for (i in lista.indices) {
-            val song = lista[i]
-
+        for (song in lista) {
             if (song.dayIndexUltimaEscucha != hoyIndex) {
                 song.dayIndexUltimaEscucha = hoyIndex
                 song.escuchasDelDia = 0
                 huboCambios = true
             }
-
-            bit.update(i + 1, song.escuchasDelDia)
         }
 
         if (huboCambios) {
             repo.guardarCanciones(lista)
         }
 
-        var topPos = 1
-        var topValue = bit.valueAt(1)
+        val playsArr = IntArray(lista.size)
+        for (i in lista.indices) {
+            playsArr[i] = lista[i].escuchasDelDia
+        }
 
-        for (i in 2..lista.size) {
-            val v = bit.valueAt(i)
+        val segmentTree = SegmentTree(playsArr)
+        segmentTree.init(0, playsArr.size - 1, 0)
+
+        var topPos = 0
+        var topValue = segmentTree.query(0, playsArr.size - 1, 0, 0, 0).max
+
+        for (i in 1 until lista.size) {
+            val v = segmentTree.query(0, playsArr.size - 1, 0, i, i).max
             if (v > topValue) {
                 topValue = v
                 topPos = i
             }
         }
 
-        val topSong = lista[topPos - 1]
+        val topSong = lista[topPos]
 
         binding.textTopSongTitle.text = topSong.titulo
         binding.textTopArtistSmall.text = topSong.artista
@@ -86,9 +88,9 @@ class StatsActivity : AppCompatActivity() {
             binding.imageTopCover.setImageResource(R.drawable.image_default)
         }
 
-
         val topCanciones = lista.mapIndexed { index, song ->
-            Pair(song, bit.valueAt(index + 1))
+            val plays = segmentTree.query(0, playsArr.size - 1, 0, index, index).max
+            Pair(song, plays)
         }
             .sortedByDescending { it.second }
             .take(3)
@@ -100,7 +102,7 @@ class StatsActivity : AppCompatActivity() {
         val mapaArtistas = mutableMapOf<String, Int>()
 
         for (i in lista.indices) {
-            val plays = bit.valueAt(i + 1)
+            val plays = segmentTree.query(0, playsArr.size - 1, 0, i, i).max
             val artista = lista[i].artista
             mapaArtistas[artista] = (mapaArtistas[artista] ?: 0) + plays
         }

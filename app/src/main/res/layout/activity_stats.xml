@@ -60,27 +60,37 @@
 
     <TextView
         android:id="@+id/textTopArtistSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="12dp"
         android:text="@string/artista"
         android:fontFamily="@font/gotham"
         android:textColor="#9CA3AF"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/cardTopCover"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/textTopSongTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="2dp"
         android:text="@string/titulo_cancion"
         android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/textTopArtistSmall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -97,12 +107,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="26dp"
         android:text="@string/top_canciones"
         android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/textTopSongTitle"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,12 +122,13 @@
         android:id="@+id/textHeaderTopArtists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="26dp"
         android:text="@string/top_artistas"
+        android:fontFamily="@font/gotham"
         android:textColor="#F9FAFB"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/textTopSongTitle"
         app:layout_constraintStart_toEndOf="@id/guidelineCenter"
@@ -128,7 +139,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="14dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/textHeaderTopSongs"
@@ -138,7 +149,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -151,21 +163,25 @@
 
             <TextView
                 android:id="@+id/textSong1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/cancion"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -178,21 +194,25 @@
 
             <TextView
                 android:id="@+id/textSong2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/cancion"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -205,14 +225,17 @@
 
             <TextView
                 android:id="@+id/textSong3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/cancion"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -221,7 +244,7 @@
         android:id="@+id/colTopArtists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="14dp"
         android:orientation="vertical"
@@ -232,7 +255,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -245,21 +269,25 @@
 
             <TextView
                 android:id="@+id/textArtist1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/artista"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -272,21 +300,25 @@
 
             <TextView
                 android:id="@+id/textArtist2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/artista"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <TextView
                 android:layout_width="28dp"
@@ -299,14 +331,17 @@
 
             <TextView
                 android:id="@+id/textArtist3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
                 android:text="@string/artista"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:ellipsize="end"/>
         </LinearLayout>
 
     </LinearLayout>
