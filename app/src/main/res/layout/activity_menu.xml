@@ -39,15 +39,19 @@
 
             <TextView
                 android:id="@+id/textMisCanciones"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/mis_canciones"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/iconMusic"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -86,15 +90,19 @@
 
             <TextView
                 android:id="@+id/textEstadisticas"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/mood_del_dia"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/iconStats"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -133,15 +141,19 @@
 
             <TextView
                 android:id="@+id/textAgregarCancion"
-                android:layout_width="215dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/agregar_cancion"
                 android:fontFamily="@font/gotham"
                 android:textColor="#F9FAFB"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/iconAdd"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
