@@ -140,7 +140,7 @@ class SongsActivity : AppCompatActivity() {
         if (s1.coverUri.isNotEmpty()) {
             binding.imgLast1.setImageURI(Uri.parse(s1.coverUri))
         } else {
-            binding.imgLast1.setImageResource(R.drawable.cover_default)
+            binding.imgLast1.setImageResource(R.drawable.image_default)
         }
         binding.cardLast1.setOnClickListener { abrirDetalle(s1.id) }
 
@@ -154,7 +154,7 @@ class SongsActivity : AppCompatActivity() {
             if (s2.coverUri.isNotEmpty()) {
                 binding.imgLast2.setImageURI(Uri.parse(s2.coverUri))
             } else {
-                binding.imgLast2.setImageResource(R.drawable.cover_default)
+                binding.imgLast2.setImageResource(R.drawable.image_default)
             }
             binding.cardLast2.setOnClickListener { abrirDetalle(s2.id) }
         }

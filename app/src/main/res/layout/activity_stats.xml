@@ -55,7 +55,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/cover_art"
             android:scaleType="centerCrop"
-            android:src="@drawable/cover_default"/>
+            android:src="@drawable/image_default"/>
     </androidx.cardview.widget.CardView>
 
     <TextView
