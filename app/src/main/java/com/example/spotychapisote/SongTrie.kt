@@ -5,7 +5,6 @@ class SongTrie {
     private class Node {
         var currentCharacter: Char = '\u0000'
         var isWord: Boolean = false
-        // Usamos un HashMap para soportar CUALQUIER carácter
         val children: MutableMap<Char, Node> = mutableMapOf()
         val songIds: MutableSet<String> = linkedSetOf()
     }
