@@ -42,15 +42,12 @@ class StatsActivity : AppCompatActivity() {
         val lista = repo.obtenerCanciones()
         if (lista.isEmpty()) return
 
-        // ===== índice del día actual =====
         val hoyIndex = (System.currentTimeMillis() / 86_400_000L).toInt()
 
-        // ===== BIT =====
         val bit = Bit(lista.size)
 
         var huboCambios = false
 
-        // ===== llenar BIT con escuchas del día =====
         for (i in lista.indices) {
             val song = lista[i]
 
@@ -67,7 +64,6 @@ class StatsActivity : AppCompatActivity() {
             repo.guardarCanciones(lista)
         }
 
-        // ===== TOP 1 canción =====
         var topPos = 1
         var topValue = bit.valueAt(1)
 
@@ -90,7 +86,7 @@ class StatsActivity : AppCompatActivity() {
             binding.imageTopCover.setImageResource(R.drawable.image_default)
         }
 
-        // ===== TOP 3 canciones =====
+
         val topCanciones = lista.mapIndexed { index, song ->
             Pair(song, bit.valueAt(index + 1))
         }
@@ -101,7 +97,6 @@ class StatsActivity : AppCompatActivity() {
         binding.textSong2.text = topCanciones.getOrNull(1)?.first?.titulo ?: ""
         binding.textSong3.text = topCanciones.getOrNull(2)?.first?.titulo ?: ""
 
-        // ===== TOP 3 artistas =====
         val mapaArtistas = mutableMapOf<String, Int>()
 
         for (i in lista.indices) {

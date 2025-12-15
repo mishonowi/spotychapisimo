@@ -53,10 +53,8 @@ class SongsActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { finish() }
 
-        // LAST PLAYED inicial
         cargarLastPlayed(listaCompleta)
 
-        // SEARCH con Trie
         binding.inputSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -74,11 +72,9 @@ class SongsActivity : AppCompatActivity() {
         listaCompleta = repo.obtenerCanciones()
         reconstruirTrie(listaCompleta)
 
-        // refresca lista según búsqueda actual
         val texto = binding.inputSearch.text.toString().trim()
         aplicarFiltro(texto)
 
-        // refresca last played
         cargarLastPlayed(listaCompleta)
     }
 
@@ -90,7 +86,6 @@ class SongsActivity : AppCompatActivity() {
 
         val ids = songTrie.searchPrefix(texto)
 
-        // ✅ quitar repetidos manteniendo orden
         val unicos = LinkedHashSet<String>()
         for (id in ids) unicos.add(id)
 
@@ -110,7 +105,6 @@ class SongsActivity : AppCompatActivity() {
         for (song in lista) {
             mapaIdSong[song.id] = song
 
-            // indexa por titulo y artista
             songTrie.insertWord(song.titulo, song.id)
             songTrie.insertWord(song.artista, song.id)
         }
@@ -133,7 +127,6 @@ class SongsActivity : AppCompatActivity() {
             binding.layoutLastPlayed.visibility = View.VISIBLE
         }
 
-        // CARD 1
         binding.cardLast1.visibility = View.VISIBLE
         binding.textLastArtist1.text = s1.artista
         binding.textLastTitle1.text = s1.titulo
@@ -144,7 +137,6 @@ class SongsActivity : AppCompatActivity() {
         }
         binding.cardLast1.setOnClickListener { abrirDetalle(s1.id) }
 
-        // CARD 2
         if (s2 == null) {
             binding.cardLast2.visibility = View.INVISIBLE
         } else {

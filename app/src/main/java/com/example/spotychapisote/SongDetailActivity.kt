@@ -30,7 +30,6 @@ class SongDetailActivity : AppCompatActivity() {
 
         repo = SongRepository(this)
 
-        // ===== Obtener ID =====
         val songId = intent.getStringExtra("SONG_ID")
         if (songId.isNullOrEmpty()) {
             finish()
@@ -44,7 +43,6 @@ class SongDetailActivity : AppCompatActivity() {
             return
         }
 
-        // ===== UI =====
         binding.textTitle.text = song.titulo
         binding.textArtist.text = song.artista
 
@@ -54,12 +52,10 @@ class SongDetailActivity : AppCompatActivity() {
             binding.imageCover.setImageResource(R.drawable.image_default)
         }
 
-        // ===== Back =====
         binding.btnBack.setOnClickListener {
             finish()
         }
 
-        // ===== Listen / Wrapped del día =====
         binding.btnListen.setOnClickListener {
 
             val link = song.linkYoutube.trim()
@@ -70,25 +66,20 @@ class SongDetailActivity : AppCompatActivity() {
 
             val ahoraMs = System.currentTimeMillis()
 
-            // Índice del día (cambia cada día)
             val dayMs = 86_400_000L
             val hoyIndex = (ahoraMs / dayMs).toInt()
 
-            // Si cambió el día → reset diario
             if (song.dayIndexUltimaEscucha != hoyIndex) {
                 song.dayIndexUltimaEscucha = hoyIndex
                 song.escuchasDelDia = 0
             }
 
-            // Contadores
             song.vecesEscuchada += 1
             song.escuchasDelDia += 1
             song.ultimaVezMs = ahoraMs
 
-            // Guardar
             repo.guardarCanciones(lista)
 
-            // Abrir YouTube
             val intentYoutube = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(intentYoutube)
         }

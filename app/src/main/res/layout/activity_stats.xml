@@ -85,7 +85,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Guideline 50% para dividir columnas -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineCenter"
         android:layout_width="wrap_content"
@@ -93,7 +92,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <!-- Headers -->
     <TextView
         android:id="@+id/textHeaderTopSongs"
         android:layout_width="0dp"
@@ -125,7 +123,6 @@
         app:layout_constraintStart_toEndOf="@id/guidelineCenter"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Columna izquierda -->
     <LinearLayout
         android:id="@+id/colTopSongs"
         android:layout_width="0dp"
@@ -220,7 +217,6 @@
 
     </LinearLayout>
 
-    <!-- Columna derecha -->
     <LinearLayout
         android:id="@+id/colTopArtists"
         android:layout_width="0dp"

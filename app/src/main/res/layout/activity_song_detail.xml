@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#2F3B73">
 
-    <!-- Botón volver (icono) -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -21,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Cover dentro de CardView para bordes redondeados -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardCover"
         android:layout_width="0dp"
@@ -46,7 +44,6 @@
             android:src="@drawable/image_default" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Artista -->
     <TextView
         android:id="@+id/textArtist"
         android:layout_width="wrap_content"
@@ -60,7 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Título -->
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
@@ -75,7 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Botón Escuchar -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardPlay"
         android:layout_width="0dp"

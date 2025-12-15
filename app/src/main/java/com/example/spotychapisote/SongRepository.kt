@@ -30,7 +30,6 @@ class SongRepository(private val context: Context) {
                 vecesEscuchada = obj.optInt("vecesEscuchada", 0),
                 ultimaVezMs = obj.optLong("ultimaVezMs", 0L),
 
-                // ✅ nuevos (wrapped del día)
                 escuchasDelDia = obj.optInt("escuchasDelDia", 0),
                 dayIndexUltimaEscucha = obj.optInt("dayIndexUltimaEscucha", 0)
             )
@@ -50,8 +49,6 @@ class SongRepository(private val context: Context) {
             obj.put("coverUri", cancion.coverUri)
             obj.put("vecesEscuchada", cancion.vecesEscuchada)
             obj.put("ultimaVezMs", cancion.ultimaVezMs)
-
-            // ✅ nuevos (wrapped del día)
             obj.put("escuchasDelDia", cancion.escuchasDelDia)
             obj.put("dayIndexUltimaEscucha", cancion.dayIndexUltimaEscucha)
 
@@ -75,7 +72,6 @@ class SongRepository(private val context: Context) {
             vecesEscuchada = 0,
             ultimaVezMs = 0L,
 
-            // ✅ nuevos
             escuchasDelDia = 0,
             dayIndexUltimaEscucha = 0
         )
