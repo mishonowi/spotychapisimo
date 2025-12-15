@@ -87,7 +87,7 @@ class StatsActivity : AppCompatActivity() {
         if (topSong.coverUri.isNotEmpty()) {
             binding.imageTopCover.setImageURI(Uri.parse(topSong.coverUri))
         } else {
-            binding.imageTopCover.setImageResource(R.drawable.cover_default)
+            binding.imageTopCover.setImageResource(R.drawable.image_default)
         }
 
         // ===== TOP 3 canciones =====
