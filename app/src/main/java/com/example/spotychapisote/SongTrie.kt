@@ -20,8 +20,6 @@ class SongTrie {
         var currentNode = trie
         for (i in word.indices) {
             val char = word[i].lowercaseChar()
-
-            // Si no existe el hijo para este carácter, lo creamos
             if (!currentNode.children.containsKey(char)) {
                 currentNode.children[char] = Node()
             }
