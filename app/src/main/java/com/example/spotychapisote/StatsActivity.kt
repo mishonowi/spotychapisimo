@@ -43,9 +43,7 @@ class StatsActivity : AppCompatActivity() {
         if (lista.isEmpty()) return
 
         val hoyIndex = (System.currentTimeMillis() / 86_400_000L).toInt()
-
         var huboCambios = false
-
         for (song in lista) {
             if (song.dayIndexUltimaEscucha != hoyIndex) {
                 song.dayIndexUltimaEscucha = hoyIndex
@@ -53,23 +51,38 @@ class StatsActivity : AppCompatActivity() {
                 huboCambios = true
             }
         }
-
         if (huboCambios) {
             repo.guardarCanciones(lista)
         }
 
-        val playsArr = IntArray(lista.size)
-        for (i in lista.indices) {
-            playsArr[i] = lista[i].escuchasDelDia
+
+        val cancionesEscuchadas = lista.filter { it.escuchasDelDia > 0 }
+
+        if (cancionesEscuchadas.isEmpty()) {
+            binding.textTopSongTitle.text = "No hay reproducciones hoy"
+            binding.textTopArtistSmall.text = ""
+            binding.imageTopCover.setImageResource(R.drawable.image_default)
+            binding.textSong1.text = ""
+            binding.textSong2.text = ""
+            binding.textSong3.text = ""
+            binding.textArtist1.text = ""
+            binding.textArtist2.text = ""
+            binding.textArtist3.text = ""
+            return
+        }
+
+        val playsArr = IntArray(cancionesEscuchadas.size)
+        for (i in cancionesEscuchadas.indices) {
+            playsArr[i] = cancionesEscuchadas[i].escuchasDelDia
         }
 
         val segmentTree = SegmentTree(playsArr)
         segmentTree.init(0, playsArr.size - 1, 0)
 
+
         var topPos = 0
         var topValue = segmentTree.query(0, playsArr.size - 1, 0, 0, 0).max
-
-        for (i in 1 until lista.size) {
+        for (i in 1 until cancionesEscuchadas.size) {
             val v = segmentTree.query(0, playsArr.size - 1, 0, i, i).max
             if (v > topValue) {
                 topValue = v
@@ -77,18 +90,16 @@ class StatsActivity : AppCompatActivity() {
             }
         }
 
-        val topSong = lista[topPos]
-
+        val topSong = cancionesEscuchadas[topPos]
         binding.textTopSongTitle.text = topSong.titulo
         binding.textTopArtistSmall.text = topSong.artista
-
         if (topSong.coverUri.isNotEmpty()) {
             binding.imageTopCover.setImageURI(Uri.parse(topSong.coverUri))
         } else {
             binding.imageTopCover.setImageResource(R.drawable.image_default)
         }
 
-        val topCanciones = lista.mapIndexed { index, song ->
+        val topCanciones = cancionesEscuchadas.mapIndexed { index, song ->
             val plays = segmentTree.query(0, playsArr.size - 1, 0, index, index).max
             Pair(song, plays)
         }
@@ -100,10 +111,9 @@ class StatsActivity : AppCompatActivity() {
         binding.textSong3.text = topCanciones.getOrNull(2)?.first?.titulo ?: ""
 
         val mapaArtistas = mutableMapOf<String, Int>()
-
-        for (i in lista.indices) {
+        for (i in cancionesEscuchadas.indices) {
             val plays = segmentTree.query(0, playsArr.size - 1, 0, i, i).max
-            val artista = lista[i].artista
+            val artista = cancionesEscuchadas[i].artista
             mapaArtistas[artista] = (mapaArtistas[artista] ?: 0) + plays
         }
 

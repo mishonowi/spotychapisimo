@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         videoView.setOnCompletionListener {
             isVideoFinished = true
+            val intentMenuActivity = Intent(context, MenuActivity::class.java)
+
+            startActivity(intentMenuActivity)
+
         }
 
         videoView.setOnClickListener {
