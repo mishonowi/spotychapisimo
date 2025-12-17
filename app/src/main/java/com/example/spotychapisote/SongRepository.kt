@@ -35,7 +35,13 @@ class SongRepository(private val context: Context) {
             )
             lista.add(cancion)
         }
+        if (lista.isEmpty()) {
+            val seed = cancionesPorDefecto()
+            lista.addAll(seed)
+            guardarCanciones(lista)
+        }
         return lista
+
     }
 
     fun guardarCanciones(lista: List<Song>) {
@@ -79,4 +85,20 @@ class SongRepository(private val context: Context) {
         lista.add(0, nueva)
         guardarCanciones(lista)
     }
+    private fun cancionesPorDefecto(): List<Song> {
+        return listOf(
+            Song(UUID.randomUUID().toString(), "Bohemian Rhapsody", "Queen", "https://youtu.be/fJ9rUzIMcZQ", "", 0, 0L, 0, 0),      // Rock
+            Song(UUID.randomUUID().toString(), "Enter Sandman", "Metallica", "https://youtu.be/CD-E-LDc384", "", 0, 0L, 0, 0),      // Metal
+            Song(UUID.randomUUID().toString(), "Billie Jean", "Michael Jackson", "https://youtu.be/Zi_XLOBDo_Y", "", 0, 0L, 0, 0), // Pop
+            Song(UUID.randomUUID().toString(), "Gasolina", "Daddy Yankee", "https://youtu.be/CCF1_jI8Prk", "", 0, 0L, 0, 0),       // Reggaetón
+            Song(UUID.randomUUID().toString(), "Smells Like Teen Spirit", "Nirvana", "https://youtu.be/hTWKbfoikeg", "", 0, 0L, 0, 0), // Grunge
+            Song(UUID.randomUUID().toString(), "Lose Yourself", "Eminem", "https://youtu.be/_Yhyp-_hX2s", "", 0, 0L, 0, 0),        // Rap / Hip-Hop
+            Song(UUID.randomUUID().toString(), "I Gotta Feeling", "Black Eyed Peas", "https://youtu.be/uSD4vsh1zDA", "", 0, 0L, 0, 0), // Dance
+            Song(UUID.randomUUID().toString(), "Take Me Home, Country Roads", "John Denver", "https://youtu.be/1vrEljMfXYo", "", 0, 0L, 0, 0), // Country
+            Song(UUID.randomUUID().toString(), "No Woman, No Cry", "Bob Marley", "https://youtu.be/IT8XvzIfi4U", "", 0, 0L, 0, 0), // Reggae
+            Song(UUID.randomUUID().toString(), "Clocks", "Coldplay", "https://youtu.be/d020hcWA_Wg", "", 0, 0L, 0, 0),             // Alternative
+
+        )
+    }
+
 }
