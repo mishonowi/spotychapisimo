@@ -1,12 +1,8 @@
 package com.example.spotychapisote
 
 import kotlin.math.max
-import kotlin.math.min
 data class Node(
-    var sum: Int = 0,
-    var min: Int = 0,
-    var max: Int = 0,
-    var gcd: Int = 0
+    var max: Int = 0
 )
 
 
@@ -23,10 +19,7 @@ class SegmentTree(private val a: IntArray) {
 
     fun init(inicio: Int, fin: Int, nodo: Int) {
         if (inicio == fin) {
-            tree[nodo].sum = a[inicio]
-            tree[nodo].min = a[inicio]
             tree[nodo].max = a[inicio]
-            tree[nodo].gcd = a[inicio]
         } else {
             val mid = (inicio + fin) / 2
             val izq = 2 * nodo + 1
@@ -76,10 +69,7 @@ class SegmentTree(private val a: IntArray) {
 
         if (inicio == fin) {
             a[pos] = valor
-            tree[nodo].sum = valor
-            tree[nodo].min = valor
             tree[nodo].max = valor
-            tree[nodo].gcd = valor
         } else {
             val mid = (inicio + fin) / 2
             val izq = 2 * nodo + 1
