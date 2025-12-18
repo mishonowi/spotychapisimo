@@ -15,16 +15,9 @@ class SegmentTree(private val a: IntArray) {
     private val n = a.size
     private val tree = Array(4 * n) { Node() }
 
-    private fun gcd(x: Int, y: Int): Int {
-        return if (y == 0) x else gcd(y, x % y)
-    }
-
-    private fun merge(l: Node, r: Node): Node {
+    private fun max(l: Node, r: Node): Node {
         return Node(
-            sum = l.sum + r.sum,
-            min = min(l.min, r.min),
             max = max(l.max, r.max),
-            gcd = gcd(l.gcd, r.gcd)
         )
     }
 
@@ -42,7 +35,7 @@ class SegmentTree(private val a: IntArray) {
             init(inicio, mid, izq)
             init(mid + 1, fin, der)
 
-            tree[nodo] = merge(tree[izq], tree[der])
+            tree[nodo] = max(tree[izq], tree[der])
         }
     }
 
@@ -67,7 +60,7 @@ class SegmentTree(private val a: IntArray) {
             else -> {
                 val q1 = query(inicio, mid, izq, l, r)
                 val q2 = query(mid + 1, fin, der, l, r)
-                merge(q1, q2)
+                max(q1, q2)
             }
         }
     }
@@ -95,7 +88,7 @@ class SegmentTree(private val a: IntArray) {
             update(inicio, mid, izq, pos, valor)
             update(mid + 1, fin, der, pos, valor)
 
-            tree[nodo] = merge(tree[izq], tree[der])
+            tree[nodo] = max(tree[izq], tree[der])
         }
     }
 }
